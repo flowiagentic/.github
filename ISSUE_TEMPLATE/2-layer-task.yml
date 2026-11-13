@@ -1,0 +1,32 @@
+name: Bug or layer task
+description: A bug, or the part of a feature that one repository delivers. Open it in the repository that changes.
+labels: []
+projects: ["flowiagentic/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Open this in the repository whose code changes. When it is part of a feature, link it as a sub-issue of the parent in `flowi-architecture`.
+        The pull request closes it with `Fixes flowiagentic/<repository>#<number>`.
+  - type: input
+    id: parent
+    attributes:
+      label: Parent feature
+      description: flowiagentic/flowi-architecture#N, or empty for a standalone bug or task.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happens / what to deliver
+      description: For a bug, the steps, what you saw and what you expected. For a task, the scope in this repository.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Tenant, instance, request id, log line, screenshot. Never paste secrets or tokens.
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options: ["P1", "P2", "P3"]

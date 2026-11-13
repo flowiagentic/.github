@@ -1,0 +1,41 @@
+name: Feature (parent issue)
+description: A feature that touches more than one layer. Open it in flowi-architecture, where its spec lives, then add one sub-issue per layer repository.
+title: "<What the person can do once it ships>"
+labels: ["enhancement"]
+projects: ["flowiagentic/1"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Open this in `flowi-architecture`.** A feature that touches only one layer is a layer task in that repository instead.
+        After creating it, add a sub-issue in each repository that changes (`flowi-backend`, `flowi-frontend`, `flowi-docs`, `flowi-infra`) with the layer task template.
+        Rules: `flowi-agentic-governance/instructions/ISSUES.md`.
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What happens today, for whom, and the concrete case that showed it.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What should exist. Decisions that need validation go under Points for the spec.
+    validations:
+      required: true
+  - type: textarea
+    id: spec
+    attributes:
+      label: Points for the spec
+      description: Open questions. SPEC → TEST → CODE → DOC — the spec in specs/ is written and validated before code.
+  - type: input
+    id: spec-path
+    attributes:
+      label: Spec
+      description: Path in flowi-architecture, e.g. specs/workflow/definition-deletion.md (⬜ until validated).
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options: ["P1", "P2", "P3"]
